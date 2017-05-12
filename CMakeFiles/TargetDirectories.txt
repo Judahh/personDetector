@@ -1,0 +1,3 @@
+/Users/Judah/face_detect_n_track/CMakeFiles/rebuild_cache.dir
+/Users/Judah/face_detect_n_track/CMakeFiles/edit_cache.dir
+/Users/Judah/face_detect_n_track/CMakeFiles/personDetector.dir

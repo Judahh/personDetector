@@ -95,7 +95,15 @@ vector<Point2f> Person::getPoints(){
     return points;
 }
 
+Rect Person::getRectFromPoints(){
+    Rect tempRect = m_face->getRectFromPoints();
+    tempRect.x = tempRect.x + m_faceRect->x;
+    tempRect.y = tempRect.y + m_faceRect->y;
+    return tempRect;
+}
+
 void Person::updateFaceMat(Mat fullMat){
+    // setFaceRect(getRectFromPoints());
     Mat faceMat=fullMat(getFaceRect());
     m_face->updateMat(faceMat);
 }

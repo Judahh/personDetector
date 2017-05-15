@@ -25,6 +25,8 @@ public:
     vector<Mouth>       getMouths();
     vector<Point2f>     getPoints();
 
+    Rect                getRectFromPoints();
+
 private:
 
     vector<Point2f>     makePoints();

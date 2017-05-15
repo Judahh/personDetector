@@ -14,7 +14,6 @@ Face::Face(Mat faceMat){
     findEyes(faceMat);
     findNoses(faceMat);
     findMouths(faceMat);
-
     m_points=makePoints();
 }
 
@@ -175,6 +174,28 @@ void Face::calculateOpticalFlow(Mat lastMat, Mat currentMat){
     }
 }
 
+Rect Face::getRectFromPoints(){
+    float smallestX=10000;
+    float smallestY=10000;
+    float biggestX=0;
+    float biggestY=0;
+    for(auto point : m_points){
+        if(point.x>biggestX){
+            biggestX=point.x;
+        }
+        if(point.x<smallestX){
+            smallestX=point.x;
+        }
+        if(point.y>biggestY){
+            biggestY=point.y;
+        }
+        if(point.y<smallestY){
+            smallestY=point.y;
+        }
+    }
+    return Rect(smallestX, smallestY, biggestX-smallestX, biggestY-smallestY);
+}
+
 void Face::updateMat(Mat currentMat){
     Mat lastMat = m_mat;
     
@@ -222,6 +243,7 @@ void Face::updateMat(Mat currentMat){
         findEyes(lastMat);
         findNoses(lastMat);
         findMouths(lastMat);
+        m_points=makePoints();
         if(currentPoints.size()>0){
             calculateOpticalFlow(lastMat, currentMat);
         }

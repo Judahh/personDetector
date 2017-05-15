@@ -39,5 +39,6 @@ private:
         // void                newFace(Face face);
         // void                newPoint(Point2f point);
         void                newFaceRect(Rect faceRect); 
+        Rect                getRectFromPoints();
 };
 

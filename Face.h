@@ -37,5 +37,11 @@ private:
 
     Mat                 updateWidth(Mat   wider, Mat correct);
     Mat                 updateHeight(Mat higher, Mat correct);
+
+    void                calculateOpticalFlow(Mat lastMat, Mat currentMat);
+
+    void                findEyes(Mat faceMat);
+    void                findNoses(Mat faceMat);
+    void                findMouths(Mat faceMat);
 };
 

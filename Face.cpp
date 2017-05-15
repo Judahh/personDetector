@@ -11,38 +11,9 @@ using namespace std;
 
 Face::Face(Mat faceMat){
     m_mat = faceMat;
-    vector<cv::Rect>   allEyes;
-    CascadeClassifier eyeCascade("cascade/eye.xml");
-    eyeCascade.detectMultiScale(faceMat, allEyes, 1.1, 3, 0,
-    Size(faceMat.rows / 50, faceMat.cols / 50),
-    Size(faceMat.rows, faceMat.cols));
-
-    for(auto eyeRect : allEyes){
-        Eye eye(eyeRect);
-        m_eyes.push_back(eye);
-    }
-
-    vector<cv::Rect>   allNoses;
-    CascadeClassifier noseCascade("cascade/nose.xml");
-    noseCascade.detectMultiScale(faceMat, allNoses, 1.1, 3, 0,
-    Size(faceMat.rows / 50, faceMat.cols / 50),
-    Size(faceMat.rows, faceMat.cols));
-
-    for(auto noseRect : allNoses){
-        Nose nose(noseRect);
-        m_noses.push_back(nose);
-    }
-
-    vector<cv::Rect>   allMouths;
-    CascadeClassifier mouthCascade("cascade/mouth.xml");
-    mouthCascade.detectMultiScale(faceMat, allMouths, 1.1, 3, 0,
-    Size(faceMat.rows / 50, faceMat.cols / 50),
-    Size(faceMat.rows, faceMat.cols));
-
-    for(auto mouthRect : allMouths){
-        Mouth mouth(mouthRect);
-        m_mouths.push_back(mouth);
-    }
+    findEyes(faceMat);
+    findNoses(faceMat);
+    findMouths(faceMat);
 
     m_points=makePoints();
 }
@@ -74,6 +45,45 @@ Face::~Face(){
     // if (m_faceCascade != NULL) {
     //     delete m_faceCascade;
     // }
+}
+
+void Face::findEyes(Mat faceMat){
+    CascadeClassifier eyeCascade("cascade/eye.xml");
+    vector<cv::Rect>   allEyes;
+    eyeCascade.detectMultiScale(faceMat, allEyes, 1.1, 3, 0,
+    Size(faceMat.rows / 50, faceMat.cols / 50),
+    Size(faceMat.rows, faceMat.cols));
+
+    for(auto eyeRect : allEyes){
+        Eye eye(eyeRect);
+        m_eyes.push_back(eye);
+    }
+}
+
+void Face::findNoses(Mat faceMat){
+    CascadeClassifier noseCascade("cascade/nose.xml");
+    vector<cv::Rect>   allNoses;
+    noseCascade.detectMultiScale(faceMat, allNoses, 1.1, 3, 0,
+    Size(faceMat.rows / 50, faceMat.cols / 50),
+    Size(faceMat.rows, faceMat.cols));
+
+    for(auto noseRect : allNoses){
+        Nose nose(noseRect);
+        m_noses.push_back(nose);
+    }
+}
+
+void Face::findMouths(Mat faceMat){
+    CascadeClassifier mouthCascade("cascade/mouth.xml");
+    vector<cv::Rect>   allMouths;
+    mouthCascade.detectMultiScale(faceMat, allMouths, 1.1, 3, 0,
+    Size(faceMat.rows / 50, faceMat.cols / 50),
+    Size(faceMat.rows, faceMat.cols));
+
+    for(auto mouthRect : allMouths){
+        Mouth mouth(mouthRect);
+        m_mouths.push_back(mouth);
+    }
 }
 
 Mat Face::getMat(){
@@ -122,9 +132,51 @@ Mat Face::updateHeight(Mat higher, Mat correct){
     return higher(tempRect);
 }
 
+void Face::calculateOpticalFlow(Mat lastMat, Mat currentMat){
+    vector<uchar> status;
+    vector<float> errors;
+    vector<Point2f> currentPoints = m_points;
+    // std::cout << "POINTS:" << currentPoints.size() << std::endl; 
+    vector<Point2f> newPoints;
+
+    bool boolupdateMat=true;
+    calcOpticalFlowPyrLK(lastMat, currentMat,
+                        currentPoints, newPoints,
+                        status, errors);
+
+    float highest=0;
+    float smallest=100000;
+    // int number=0;
+    for(auto cStatus : errors){
+        if(cStatus>highest){
+            highest=cStatus;
+        }
+        if(cStatus<smallest){
+            smallest=cStatus;
+        }
+    }
+    for(int index=0;index<currentPoints.size();index++){
+        cv::Point2f currentPoint = currentPoints[index];
+        float cStatus = errors[index];
+        // std::cout << "New Value:" << currentFace_feature.x << "," << currentFace_feature.y << std::endl;
+        // std::cout << "Old Value:" << next_face_features[index].x << "," << next_face_features[index].y << std::endl;
+
+        // if(highest>(smallest+0.1)*11){//Obstacle hiding face (TODO: improve) 
+        //     boolupdateMat=false;
+        //     std::cout << "BOM!" << std::endl;
+        //     newPoints[index]=currentPoint;
+        // }
+    }
+    // std::cout << "Highest:" << highest << std::endl;
+    // std::cout << "Smallest:" << smallest << std::endl;
+    m_points=newPoints;
+    if(boolupdateMat){
+        m_mat = currentMat; 
+    }
+}
+
 void Face::updateMat(Mat currentMat){
     Mat lastMat = m_mat;
-    bool boolupdateMat=true;
     
     if((lastMat.cols!=currentMat.cols)||(lastMat.rows!=currentMat.rows)){
         // std::cout << "LAST:" << std::endl; 
@@ -161,44 +213,17 @@ void Face::updateMat(Mat currentMat){
         // std::cout << "ROWS:" << currentMat.rows << std::endl; 
     }
 
-    vector<uchar> status;
-    vector<float> errors;
     vector<Point2f> currentPoints = m_points;
     // std::cout << "POINTS:" << currentPoints.size() << std::endl; 
-    vector<Point2f> newPoints;
+
     if(currentPoints.size()>0){
-        calcOpticalFlowPyrLK(lastMat, currentMat,
-                            currentPoints, newPoints,
-                            status, errors);
-
-        float highest=0;
-        float smallest=100000;
-        // int number=0;
-        for(auto cStatus : errors){
-            if(cStatus>highest){
-                highest=cStatus;
-            }
-            if(cStatus<smallest){
-                smallest=cStatus;
-            }
-        }
-        for(int index=0;index<currentPoints.size();index++){
-            cv::Point2f currentPoint = currentPoints[index];
-            float cStatus = errors[index];
-            // std::cout << "New Value:" << currentFace_feature.x << "," << currentFace_feature.y << std::endl;
-            // std::cout << "Old Value:" << next_face_features[index].x << "," << next_face_features[index].y << std::endl;
-
-            // if(highest>(smallest+0.1)*11){//Obstacle hiding face (TODO: improve) 
-            //     boolupdateMat=false;
-            //     std::cout << "BOM!" << std::endl;
-            //     newPoints[index]=currentPoint;
-            // }
-        }
-        // std::cout << "Highest:" << highest << std::endl;
-        // std::cout << "Smallest:" << smallest << std::endl;
-        m_points=newPoints;
-        if(boolupdateMat){
-            m_mat = currentMat; 
+        calculateOpticalFlow(lastMat, currentMat);
+    }else{
+        findEyes(lastMat);
+        findNoses(lastMat);
+        findMouths(lastMat);
+        if(currentPoints.size()>0){
+            calculateOpticalFlow(lastMat, currentMat);
         }
     }
 }

@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/Users/Judah/face_detect_n_track/Eye.cpp
+/Users/Judah/personDetector/Eye.cpp
 Eye.h
-/Users/Judah/face_detect_n_track/Eye.h
+/Users/Judah/personDetector/Eye.h
 iostream
 -
 opencv2/opencv.hpp
@@ -18,7 +18,7 @@ opencv2/imgproc/imgproc.hpp
 chrono
 -
 
-/Users/Judah/face_detect_n_track/Eye.h
+/Users/Judah/personDetector/Eye.h
 opencv2/opencv.hpp
 -
 opencv2/core/core.hpp
@@ -28,15 +28,15 @@ opencv2/highgui/highgui.hpp
 opencv2/objdetect/objdetect.hpp
 -
 
-/Users/Judah/face_detect_n_track/Face.cpp
+/Users/Judah/personDetector/Face.cpp
 Face.h
-/Users/Judah/face_detect_n_track/Face.h
+/Users/Judah/personDetector/Face.h
 Eye.h
-/Users/Judah/face_detect_n_track/Eye.h
+/Users/Judah/personDetector/Eye.h
 Nose.h
-/Users/Judah/face_detect_n_track/Nose.h
+/Users/Judah/personDetector/Nose.h
 Mouth.h
-/Users/Judah/face_detect_n_track/Mouth.h
+/Users/Judah/personDetector/Mouth.h
 iostream
 -
 opencv2/opencv.hpp
@@ -46,7 +46,7 @@ opencv2/imgproc/imgproc.hpp
 chrono
 -
 
-/Users/Judah/face_detect_n_track/Face.h
+/Users/Judah/personDetector/Face.h
 opencv2/opencv.hpp
 -
 opencv2/core/core.hpp
@@ -56,15 +56,15 @@ opencv2/highgui/highgui.hpp
 opencv2/objdetect/objdetect.hpp
 -
 Eye.h
-/Users/Judah/face_detect_n_track/Eye.h
+/Users/Judah/personDetector/Eye.h
 Nose.h
-/Users/Judah/face_detect_n_track/Nose.h
+/Users/Judah/personDetector/Nose.h
 Mouth.h
-/Users/Judah/face_detect_n_track/Mouth.h
+/Users/Judah/personDetector/Mouth.h
 
-/Users/Judah/face_detect_n_track/Mouth.cpp
+/Users/Judah/personDetector/Mouth.cpp
 Mouth.h
-/Users/Judah/face_detect_n_track/Mouth.h
+/Users/Judah/personDetector/Mouth.h
 iostream
 -
 opencv2/opencv.hpp
@@ -74,7 +74,7 @@ opencv2/imgproc/imgproc.hpp
 chrono
 -
 
-/Users/Judah/face_detect_n_track/Mouth.h
+/Users/Judah/personDetector/Mouth.h
 opencv2/opencv.hpp
 -
 opencv2/core/core.hpp
@@ -84,9 +84,9 @@ opencv2/highgui/highgui.hpp
 opencv2/objdetect/objdetect.hpp
 -
 
-/Users/Judah/face_detect_n_track/Nose.cpp
+/Users/Judah/personDetector/Nose.cpp
 Nose.h
-/Users/Judah/face_detect_n_track/Nose.h
+/Users/Judah/personDetector/Nose.h
 iostream
 -
 opencv2/opencv.hpp
@@ -96,7 +96,7 @@ opencv2/imgproc/imgproc.hpp
 chrono
 -
 
-/Users/Judah/face_detect_n_track/Nose.h
+/Users/Judah/personDetector/Nose.h
 opencv2/opencv.hpp
 -
 opencv2/core/core.hpp
@@ -106,11 +106,11 @@ opencv2/highgui/highgui.hpp
 opencv2/objdetect/objdetect.hpp
 -
 
-/Users/Judah/face_detect_n_track/Person.cpp
+/Users/Judah/personDetector/Person.cpp
 Person.h
-/Users/Judah/face_detect_n_track/Person.h
+/Users/Judah/personDetector/Person.h
 Face.h
-/Users/Judah/face_detect_n_track/Face.h
+/Users/Judah/personDetector/Face.h
 iostream
 -
 opencv2/opencv.hpp
@@ -120,7 +120,7 @@ opencv2/imgproc/imgproc.hpp
 chrono
 -
 
-/Users/Judah/face_detect_n_track/Person.h
+/Users/Judah/personDetector/Person.h
 opencv2/opencv.hpp
 -
 opencv2/core/core.hpp
@@ -130,13 +130,13 @@ opencv2/highgui/highgui.hpp
 opencv2/objdetect/objdetect.hpp
 -
 Face.h
-/Users/Judah/face_detect_n_track/Face.h
+/Users/Judah/personDetector/Face.h
 
-/Users/Judah/face_detect_n_track/PersonDetector.cpp
+/Users/Judah/personDetector/PersonDetector.cpp
 PersonDetector.h
-/Users/Judah/face_detect_n_track/PersonDetector.h
+/Users/Judah/personDetector/PersonDetector.h
 Person.h
-/Users/Judah/face_detect_n_track/Person.h
+/Users/Judah/personDetector/Person.h
 iostream
 -
 opencv2/opencv.hpp
@@ -146,7 +146,7 @@ opencv2/imgproc/imgproc.hpp
 chrono
 -
 
-/Users/Judah/face_detect_n_track/PersonDetector.h
+/Users/Judah/personDetector/PersonDetector.h
 opencv2/opencv.hpp
 -
 opencv2/core/core.hpp
@@ -156,13 +156,13 @@ opencv2/highgui/highgui.hpp
 opencv2/objdetect/objdetect.hpp
 -
 Person.h
-/Users/Judah/face_detect_n_track/Person.h
+/Users/Judah/personDetector/Person.h
 
-/Users/Judah/face_detect_n_track/VideoFaceDetector.cpp
+/Users/Judah/personDetector/VideoFaceDetector.cpp
 VideoFaceDetector.h
-/Users/Judah/face_detect_n_track/VideoFaceDetector.h
+/Users/Judah/personDetector/VideoFaceDetector.h
 Person.h
-/Users/Judah/face_detect_n_track/Person.h
+/Users/Judah/personDetector/Person.h
 iostream
 -
 opencv2/opencv.hpp
@@ -172,7 +172,7 @@ opencv2/imgproc/imgproc.hpp
 chrono
 -
 
-/Users/Judah/face_detect_n_track/VideoFaceDetector.h
+/Users/Judah/personDetector/VideoFaceDetector.h
 opencv2/opencv.hpp
 -
 opencv2/core/core.hpp
@@ -182,9 +182,9 @@ opencv2/highgui/highgui.hpp
 opencv2/objdetect/objdetect.hpp
 -
 Person.h
-/Users/Judah/face_detect_n_track/Person.h
+/Users/Judah/personDetector/Person.h
 
-/Users/Judah/face_detect_n_track/main.cpp
+/Users/Judah/personDetector/main.cpp
 opencv2/highgui/highgui.hpp
 -
 opencv2/imgproc/imgproc.hpp
@@ -196,9 +196,9 @@ vector
 cmath
 -
 VideoFaceDetector.h
-/Users/Judah/face_detect_n_track/VideoFaceDetector.h
+/Users/Judah/personDetector/VideoFaceDetector.h
 PersonDetector.h
-/Users/Judah/face_detect_n_track/PersonDetector.h
+/Users/Judah/personDetector/PersonDetector.h
 
 /usr/local/Cellar/opencv3/3.2.0/include/opencv/cxcore.h
 opencv2/core/core_c.h

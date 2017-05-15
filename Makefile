@@ -48,10 +48,10 @@ RM = /usr/local/Cellar/cmake/3.8.1/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/Judah/face_detect_n_track
+CMAKE_SOURCE_DIR = /Users/Judah/personDetector
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/Judah/face_detect_n_track
+CMAKE_BINARY_DIR = /Users/Judah/personDetector
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Judah/face_detect_n_track/CMakeFiles /Users/Judah/face_detect_n_track/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Judah/personDetector/CMakeFiles /Users/Judah/personDetector/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Judah/face_detect_n_track/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Judah/personDetector/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

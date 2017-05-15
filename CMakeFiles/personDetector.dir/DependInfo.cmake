@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/Judah/face_detect_n_track/Eye.cpp" "/Users/Judah/face_detect_n_track/CMakeFiles/personDetector.dir/Eye.cpp.o"
-  "/Users/Judah/face_detect_n_track/Face.cpp" "/Users/Judah/face_detect_n_track/CMakeFiles/personDetector.dir/Face.cpp.o"
-  "/Users/Judah/face_detect_n_track/Mouth.cpp" "/Users/Judah/face_detect_n_track/CMakeFiles/personDetector.dir/Mouth.cpp.o"
-  "/Users/Judah/face_detect_n_track/Nose.cpp" "/Users/Judah/face_detect_n_track/CMakeFiles/personDetector.dir/Nose.cpp.o"
-  "/Users/Judah/face_detect_n_track/Person.cpp" "/Users/Judah/face_detect_n_track/CMakeFiles/personDetector.dir/Person.cpp.o"
-  "/Users/Judah/face_detect_n_track/PersonDetector.cpp" "/Users/Judah/face_detect_n_track/CMakeFiles/personDetector.dir/PersonDetector.cpp.o"
-  "/Users/Judah/face_detect_n_track/VideoFaceDetector.cpp" "/Users/Judah/face_detect_n_track/CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.o"
-  "/Users/Judah/face_detect_n_track/main.cpp" "/Users/Judah/face_detect_n_track/CMakeFiles/personDetector.dir/main.cpp.o"
+  "/Users/Judah/personDetector/Eye.cpp" "/Users/Judah/personDetector/CMakeFiles/personDetector.dir/Eye.cpp.o"
+  "/Users/Judah/personDetector/Face.cpp" "/Users/Judah/personDetector/CMakeFiles/personDetector.dir/Face.cpp.o"
+  "/Users/Judah/personDetector/Mouth.cpp" "/Users/Judah/personDetector/CMakeFiles/personDetector.dir/Mouth.cpp.o"
+  "/Users/Judah/personDetector/Nose.cpp" "/Users/Judah/personDetector/CMakeFiles/personDetector.dir/Nose.cpp.o"
+  "/Users/Judah/personDetector/Person.cpp" "/Users/Judah/personDetector/CMakeFiles/personDetector.dir/Person.cpp.o"
+  "/Users/Judah/personDetector/PersonDetector.cpp" "/Users/Judah/personDetector/CMakeFiles/personDetector.dir/PersonDetector.cpp.o"
+  "/Users/Judah/personDetector/VideoFaceDetector.cpp" "/Users/Judah/personDetector/CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.o"
+  "/Users/Judah/personDetector/main.cpp" "/Users/Judah/personDetector/CMakeFiles/personDetector.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 

@@ -43,10 +43,10 @@ RM = /usr/local/Cellar/cmake/3.8.1/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/Judah/face_detect_n_track
+CMAKE_SOURCE_DIR = /Users/Judah/personDetector
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/Judah/face_detect_n_track
+CMAKE_BINARY_DIR = /Users/Judah/personDetector
 
 # Include any dependencies generated for this target.
 include CMakeFiles/personDetector.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/personDetector.dir/flags.make
 
 CMakeFiles/personDetector.dir/main.cpp.o: CMakeFiles/personDetector.dir/flags.make
 CMakeFiles/personDetector.dir/main.cpp.o: main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/face_detect_n_track/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/personDetector.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/main.cpp.o -c /Users/Judah/face_detect_n_track/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/personDetector/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/personDetector.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/main.cpp.o -c /Users/Judah/personDetector/main.cpp
 
 CMakeFiles/personDetector.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/personDetector.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/face_detect_n_track/main.cpp > CMakeFiles/personDetector.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/personDetector/main.cpp > CMakeFiles/personDetector.dir/main.cpp.i
 
 CMakeFiles/personDetector.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/personDetector.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/face_detect_n_track/main.cpp -o CMakeFiles/personDetector.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/personDetector/main.cpp -o CMakeFiles/personDetector.dir/main.cpp.s
 
 CMakeFiles/personDetector.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/personDetector.dir/main.cpp.o.provides.build: CMakeFiles/personDetect
 
 CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.o: CMakeFiles/personDetector.dir/flags.make
 CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.o: VideoFaceDetector.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/face_detect_n_track/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.o -c /Users/Judah/face_detect_n_track/VideoFaceDetector.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/personDetector/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.o -c /Users/Judah/personDetector/VideoFaceDetector.cpp
 
 CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/face_detect_n_track/VideoFaceDetector.cpp > CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/personDetector/VideoFaceDetector.cpp > CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.i
 
 CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/face_detect_n_track/VideoFaceDetector.cpp -o CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/personDetector/VideoFaceDetector.cpp -o CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.s
 
 CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/personDetector.dir/VideoFaceDetector.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/personDetector.dir/PersonDetector.cpp.o: CMakeFiles/personDetector.dir/flags.make
 CMakeFiles/personDetector.dir/PersonDetector.cpp.o: PersonDetector.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/face_detect_n_track/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/personDetector.dir/PersonDetector.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/PersonDetector.cpp.o -c /Users/Judah/face_detect_n_track/PersonDetector.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/personDetector/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/personDetector.dir/PersonDetector.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/PersonDetector.cpp.o -c /Users/Judah/personDetector/PersonDetector.cpp
 
 CMakeFiles/personDetector.dir/PersonDetector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/personDetector.dir/PersonDetector.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/face_detect_n_track/PersonDetector.cpp > CMakeFiles/personDetector.dir/PersonDetector.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/personDetector/PersonDetector.cpp > CMakeFiles/personDetector.dir/PersonDetector.cpp.i
 
 CMakeFiles/personDetector.dir/PersonDetector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/personDetector.dir/PersonDetector.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/face_detect_n_track/PersonDetector.cpp -o CMakeFiles/personDetector.dir/PersonDetector.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/personDetector/PersonDetector.cpp -o CMakeFiles/personDetector.dir/PersonDetector.cpp.s
 
 CMakeFiles/personDetector.dir/PersonDetector.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/personDetector.dir/PersonDetector.cpp.o.provides.build: CMakeFiles/pe
 
 CMakeFiles/personDetector.dir/Person.cpp.o: CMakeFiles/personDetector.dir/flags.make
 CMakeFiles/personDetector.dir/Person.cpp.o: Person.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/face_detect_n_track/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/personDetector.dir/Person.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/Person.cpp.o -c /Users/Judah/face_detect_n_track/Person.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/personDetector/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/personDetector.dir/Person.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/Person.cpp.o -c /Users/Judah/personDetector/Person.cpp
 
 CMakeFiles/personDetector.dir/Person.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/personDetector.dir/Person.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/face_detect_n_track/Person.cpp > CMakeFiles/personDetector.dir/Person.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/personDetector/Person.cpp > CMakeFiles/personDetector.dir/Person.cpp.i
 
 CMakeFiles/personDetector.dir/Person.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/personDetector.dir/Person.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/face_detect_n_track/Person.cpp -o CMakeFiles/personDetector.dir/Person.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/personDetector/Person.cpp -o CMakeFiles/personDetector.dir/Person.cpp.s
 
 CMakeFiles/personDetector.dir/Person.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/personDetector.dir/Person.cpp.o.provides.build: CMakeFiles/personDete
 
 CMakeFiles/personDetector.dir/Face.cpp.o: CMakeFiles/personDetector.dir/flags.make
 CMakeFiles/personDetector.dir/Face.cpp.o: Face.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/face_detect_n_track/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/personDetector.dir/Face.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/Face.cpp.o -c /Users/Judah/face_detect_n_track/Face.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/personDetector/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/personDetector.dir/Face.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/Face.cpp.o -c /Users/Judah/personDetector/Face.cpp
 
 CMakeFiles/personDetector.dir/Face.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/personDetector.dir/Face.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/face_detect_n_track/Face.cpp > CMakeFiles/personDetector.dir/Face.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/personDetector/Face.cpp > CMakeFiles/personDetector.dir/Face.cpp.i
 
 CMakeFiles/personDetector.dir/Face.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/personDetector.dir/Face.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/face_detect_n_track/Face.cpp -o CMakeFiles/personDetector.dir/Face.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/personDetector/Face.cpp -o CMakeFiles/personDetector.dir/Face.cpp.s
 
 CMakeFiles/personDetector.dir/Face.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/personDetector.dir/Face.cpp.o.provides.build: CMakeFiles/personDetect
 
 CMakeFiles/personDetector.dir/Eye.cpp.o: CMakeFiles/personDetector.dir/flags.make
 CMakeFiles/personDetector.dir/Eye.cpp.o: Eye.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/face_detect_n_track/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/personDetector.dir/Eye.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/Eye.cpp.o -c /Users/Judah/face_detect_n_track/Eye.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/personDetector/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/personDetector.dir/Eye.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/Eye.cpp.o -c /Users/Judah/personDetector/Eye.cpp
 
 CMakeFiles/personDetector.dir/Eye.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/personDetector.dir/Eye.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/face_detect_n_track/Eye.cpp > CMakeFiles/personDetector.dir/Eye.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/personDetector/Eye.cpp > CMakeFiles/personDetector.dir/Eye.cpp.i
 
 CMakeFiles/personDetector.dir/Eye.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/personDetector.dir/Eye.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/face_detect_n_track/Eye.cpp -o CMakeFiles/personDetector.dir/Eye.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/personDetector/Eye.cpp -o CMakeFiles/personDetector.dir/Eye.cpp.s
 
 CMakeFiles/personDetector.dir/Eye.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/personDetector.dir/Eye.cpp.o.provides.build: CMakeFiles/personDetecto
 
 CMakeFiles/personDetector.dir/Nose.cpp.o: CMakeFiles/personDetector.dir/flags.make
 CMakeFiles/personDetector.dir/Nose.cpp.o: Nose.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/face_detect_n_track/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/personDetector.dir/Nose.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/Nose.cpp.o -c /Users/Judah/face_detect_n_track/Nose.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/personDetector/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/personDetector.dir/Nose.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/Nose.cpp.o -c /Users/Judah/personDetector/Nose.cpp
 
 CMakeFiles/personDetector.dir/Nose.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/personDetector.dir/Nose.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/face_detect_n_track/Nose.cpp > CMakeFiles/personDetector.dir/Nose.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/personDetector/Nose.cpp > CMakeFiles/personDetector.dir/Nose.cpp.i
 
 CMakeFiles/personDetector.dir/Nose.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/personDetector.dir/Nose.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/face_detect_n_track/Nose.cpp -o CMakeFiles/personDetector.dir/Nose.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/personDetector/Nose.cpp -o CMakeFiles/personDetector.dir/Nose.cpp.s
 
 CMakeFiles/personDetector.dir/Nose.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/personDetector.dir/Nose.cpp.o.provides.build: CMakeFiles/personDetect
 
 CMakeFiles/personDetector.dir/Mouth.cpp.o: CMakeFiles/personDetector.dir/flags.make
 CMakeFiles/personDetector.dir/Mouth.cpp.o: Mouth.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/face_detect_n_track/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/personDetector.dir/Mouth.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/Mouth.cpp.o -c /Users/Judah/face_detect_n_track/Mouth.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Judah/personDetector/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/personDetector.dir/Mouth.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/personDetector.dir/Mouth.cpp.o -c /Users/Judah/personDetector/Mouth.cpp
 
 CMakeFiles/personDetector.dir/Mouth.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/personDetector.dir/Mouth.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/face_detect_n_track/Mouth.cpp > CMakeFiles/personDetector.dir/Mouth.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Judah/personDetector/Mouth.cpp > CMakeFiles/personDetector.dir/Mouth.cpp.i
 
 CMakeFiles/personDetector.dir/Mouth.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/personDetector.dir/Mouth.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/face_detect_n_track/Mouth.cpp -o CMakeFiles/personDetector.dir/Mouth.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Judah/personDetector/Mouth.cpp -o CMakeFiles/personDetector.dir/Mouth.cpp.s
 
 CMakeFiles/personDetector.dir/Mouth.cpp.o.requires:
 
@@ -315,7 +315,7 @@ personDetector: /usr/local/opt/opencv3/lib/libopencv_imgcodecs.3.2.0.dylib
 personDetector: /usr/local/opt/opencv3/lib/libopencv_imgproc.3.2.0.dylib
 personDetector: /usr/local/opt/opencv3/lib/libopencv_core.3.2.0.dylib
 personDetector: CMakeFiles/personDetector.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Judah/face_detect_n_track/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable personDetector"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Judah/personDetector/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable personDetector"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/personDetector.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -339,6 +339,6 @@ CMakeFiles/personDetector.dir/clean:
 .PHONY : CMakeFiles/personDetector.dir/clean
 
 CMakeFiles/personDetector.dir/depend:
-	cd /Users/Judah/face_detect_n_track && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/Judah/face_detect_n_track /Users/Judah/face_detect_n_track /Users/Judah/face_detect_n_track /Users/Judah/face_detect_n_track /Users/Judah/face_detect_n_track/CMakeFiles/personDetector.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/Judah/personDetector && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/Judah/personDetector /Users/Judah/personDetector /Users/Judah/personDetector /Users/Judah/personDetector /Users/Judah/personDetector/CMakeFiles/personDetector.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/personDetector.dir/depend
 

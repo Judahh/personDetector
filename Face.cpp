@@ -99,15 +99,15 @@ vector<Eye> Face::getEyes(){
 vector<Point2f> Face::makePoints(){
     vector<Point2f> points;
     for(auto eye : m_eyes){
-        points.insert(points.end(), eye.points.begin(), eye.points.end());
+        points.insert(points.end(), eye.getPoints().begin(), eye.getPoints().end());
     }   
 
     for(auto nose : m_noses){
-        points.insert(points.end(), nose.points.begin(), nose.points.end());
+        points.insert(points.end(), nose.getPoints().begin(), nose.getPoints().end());
     }  
 
     for(auto mouth : m_mouths){
-        points.insert(points.end(), mouth.points.begin(), mouth.points.end());
+        points.insert(points.end(), mouth.getPoints().begin(), mouth.getPoints().end());
     }  
     return points;
 }

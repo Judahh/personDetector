@@ -14,7 +14,10 @@ public:
     Mouth(vector<Point2f> points);
     ~Mouth();
     
-    vector<Point2f> points;
-    Rect            *rect;
+    Rect                getRect();
+    vector<Point2f>     getPoints();
+private:
+    vector<Point2f> m_points;
+    Rect            *m_rect;
 };
 

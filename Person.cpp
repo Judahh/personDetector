@@ -8,19 +8,9 @@ using namespace cv;
 using namespace std; 
 
 Person::Person(Rect faceRect, Mat fullMat){
-    // setFaceRect(faceRect);
-    Rect tempRect = faceRect;
-    m_faceRect = &tempRect;
-
-    
-    // setPoint(getFaceRect());
-    m_point = new Point2f((float)faceRect.x,(float)faceRect.y);
-
-    // setFace(faceMat);
-    Mat faceMat=fullMat(getFaceRect());
-    // m_face(faceMat);
-    m_face = new Face(faceMat);
-    
+    newFaceRect(faceRect);
+    newPoint(getFaceRect());
+    newFace(fullMat);
 }
 
 
@@ -30,32 +20,40 @@ Person::~Person(){
     // }
 }
 
-void Person::updateFace(Mat faceMat){
+void Person::newFaceRect(Rect faceRect){
+    m_faceRect = new Rect(faceRect.x, faceRect.y, faceRect.width, faceRect.height);
+}
+
+
+
+void Person::newFace(Mat fullMat){
+    // setFace(faceMat);
+    Mat faceMat=fullMat(getFaceRect());
     // m_face(faceMat);
-    // delete m_face;
-    // Face tempFace = Face(faceMat);
-    // m_face = &tempFace;
+    m_face = new Face(faceMat);
+}
+
+void Person::newPoint(Rect rect){
+    m_point = new Point2f((float)rect.x,(float)rect.y);
+}
+
+void Person::updateFace(Mat faceMat){
     m_face->updateMat(faceMat);
-    // m_face = new Face(faceMat);
+}
+
+void Person::updatePoint(Rect rect){
+    m_point->x=(float)rect.x;
+    m_point->y=(float)rect.y;
 }
 
 void Person::setFace(Face face){
     Face tempFace = face;
     m_face = &tempFace;
-    // m_face = face;
-}
-
-void Person::updatePoint(Rect rect){
-    // m_point = new Point2f((float)rect.x,(float)rect.y);
-    // m_point((float)rect.x,(float)rect.y);
-    m_point->x=(float)rect.x;
-    m_point->y=(float)rect.y;
 }
 
 void Person::setPoint(Point2f point){
     Point2f tempPoint = point;
     m_point = &tempPoint;
-    // m_point = point;
 }
 
 void Person::setFaceRect(Rect rect){

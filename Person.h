@@ -36,8 +36,8 @@ private:
         void                newFace(Mat faceMat);
         void                newPoint(Rect rect);
 
-        void                newFace(Face face);
-        void                newPoint(Point2f point);
-        void                newFaceRect(Rect rect); 
+        // void                newFace(Face face);
+        // void                newPoint(Point2f point);
+        void                newFaceRect(Rect faceRect); 
 };
 

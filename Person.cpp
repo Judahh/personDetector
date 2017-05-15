@@ -15,8 +15,14 @@ Person::Person(Rect faceRect, Mat fullMat){
 
 
 Person::~Person(){
-    // if (m_faceCascade != NULL) {
-    //     delete m_faceCascade;
+    // if (m_faceRect != NULL) {
+    //     delete faceRect;
+    // }
+    // if (m_faceRect != NULL) {
+    //     delete faceRect;
+    // }
+    // if (m_faceRect != NULL) {
+    //     delete faceRect;
     // }
 }
 

@@ -144,8 +144,8 @@ void PersonDetector::getFrameAndDetect(Mat &frame)
     if(persons.size()==0){
         detectFaceAllSizes(resizedFrame); // Detect using cascades over whole image
     }else{
-        // detectFacesGoodFeaturesToTrack(resizedFrame); 
-        detectFacesTemplateMatching(resizedFrame);// Detect using template matching
+        detectFacesGoodFeaturesToTrack(resizedFrame); 
+        // detectFacesTemplateMatching(resizedFrame);// Detect using template matching
     }
 }
 

@@ -24,6 +24,20 @@ class Person{
 private:
         Face                *m_face;
         Point2f             *m_point;
-        Rect                m_faceRect;    
+        Rect                *m_faceRect; 
+
+        void                updateFace(Mat faceMat);
+        void                updatePoint(Rect rect);  
+
+        void                setFace(Face face);
+        void                setPoint(Point2f point);
+        void                setFaceRect(Rect rect); 
+
+        void                newFace(Mat faceMat);
+        void                newPoint(Rect rect);
+
+        void                newFace(Face face);
+        void                newPoint(Point2f point);
+        void                newFaceRect(Rect rect); 
 };
 

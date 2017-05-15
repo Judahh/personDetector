@@ -8,11 +8,19 @@ using namespace cv;
 using namespace std; 
 
 Person::Person(Rect faceRect, Mat fullMat){
-    m_faceRect = faceRect;
-    Mat faceMat=fullMat(faceRect);
-   
+    // setFaceRect(faceRect);
+    Rect tempRect = faceRect;
+    m_faceRect = &tempRect;
+
+    
+    // setPoint(getFaceRect());
     m_point = new Point2f((float)faceRect.x,(float)faceRect.y);
+
+    // setFace(faceMat);
+    Mat faceMat=fullMat(getFaceRect());
+    // m_face(faceMat);
     m_face = new Face(faceMat);
+    
 }
 
 
@@ -22,16 +30,55 @@ Person::~Person(){
     // }
 }
 
+void Person::updateFace(Mat faceMat){
+    // m_face(faceMat);
+    // delete m_face;
+    // Face tempFace = Face(faceMat);
+    // m_face = &tempFace;
+    m_face->updateMat(faceMat);
+    // m_face = new Face(faceMat);
+}
+
+void Person::setFace(Face face){
+    Face tempFace = face;
+    m_face = &tempFace;
+    // m_face = face;
+}
+
+void Person::updatePoint(Rect rect){
+    // m_point = new Point2f((float)rect.x,(float)rect.y);
+    // m_point((float)rect.x,(float)rect.y);
+    m_point->x=(float)rect.x;
+    m_point->y=(float)rect.y;
+}
+
+void Person::setPoint(Point2f point){
+    Point2f tempPoint = point;
+    m_point = &tempPoint;
+    // m_point = point;
+}
+
+void Person::setFaceRect(Rect rect){
+    m_faceRect->x=rect.x;
+    m_faceRect->y=rect.y;
+    m_faceRect->width=rect.width;
+    m_faceRect->height=rect.height;
+}
+
+
 Face Person::getFace(){
     return *m_face;
+    // return m_face;
 }
 
 Point2f Person::getPoint(){
     return *m_point;
+    // return m_point;
 }
 
 Rect Person::getFaceRect(){
-    return m_faceRect;
+    return *m_faceRect;
+    // return m_faceRect;
 }
 
 vector<Point2f> Person::getPoints(){
@@ -45,7 +92,7 @@ vector<Point2f> Person::getPoints(){
 }
 
 void Person::updateFaceMat(Mat fullMat){
-    Mat faceMat=fullMat(m_faceRect);
+    Mat faceMat=fullMat(getFaceRect());
     m_face->updateMat(faceMat);
 }
 
@@ -79,13 +126,11 @@ void Person::templateMatching(Mat fullMat){
 
     imshow("Template", faceTemplate);
     
+    setFaceRect(faceRect);
 
-    m_faceRect = faceRect;
-
-    Mat faceMat=fullMat(faceRect);
-    m_point->x = (float)faceRect.x;
-    m_point->y = (float)faceRect.y;
-    m_face = new Face(faceMat);
+    Mat faceMat=fullMat(getFaceRect());
+    updatePoint(faceRect);
+    updateFace(faceMat);  
 
     imshow("FOUND", faceMat);
     imshow("Replaced", m_face->getMat());

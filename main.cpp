@@ -41,7 +41,7 @@ int main(int argc, char** argv)
 		time_per_frame = (end - start) / cv::getTickFrequency();
 		fps = (15 * fps + (1 / time_per_frame)) / 16;
 
-		printf("Time per frame: %3.3f\tFPS: %3.3f\n", time_per_frame, fps);
+		// printf("Time per frame: %3.3f\tFPS: %3.3f\n", time_per_frame, fps);
 
 		
 		for(auto face : detector.faces()){  

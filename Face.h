@@ -34,5 +34,8 @@ private:
     vector<Nose>        m_noses;
     vector<Mouth>       m_mouths;
     vector<Point2f>     m_points;
+
+    Mat                 updateWidth(Mat   wider, Mat correct);
+    Mat                 updateHeight(Mat higher, Mat correct);
 };
 

@@ -112,52 +112,94 @@ vector<Point2f> Face::makePoints(){
     return points;
 }
 
+Mat Face::updateWidth(Mat   wider, Mat correct){
+    Rect tempRect((wider.cols - correct.cols)/2, 0, correct.cols, wider.rows);
+    return wider(tempRect);
+}
+
+Mat Face::updateHeight(Mat higher, Mat correct){
+    Rect tempRect(0, (higher.rows - correct.rows)/2, higher.cols, correct.rows);
+    return higher(tempRect);
+}
+
 void Face::updateMat(Mat currentMat){
     Mat lastMat = m_mat;
     bool boolupdateMat=true;
     
-    // std::cout << "LAST:" << std::endl; 
-    // std::cout << "COLS:" << lastMat.cols << std::endl; 
-    // std::cout << "ROWS:" << lastMat.rows << std::endl; 
-    // std::cout << "NEW:" << std::endl; 
-    // std::cout << "COLS:" << currentMat.cols << std::endl; 
-    // std::cout << "ROWS:" << currentMat.rows << std::endl; 
+    if((lastMat.cols!=currentMat.cols)||(lastMat.rows!=currentMat.rows)){
+        // std::cout << "LAST:" << std::endl; 
+        // std::cout << "COLS:" << lastMat.cols << std::endl; 
+        // std::cout << "ROWS:" << lastMat.rows << std::endl; 
+        // std::cout << "NEW:" << std::endl; 
+        // std::cout << "COLS:" << currentMat.cols << std::endl; 
+        // std::cout << "ROWS:" << currentMat.rows << std::endl; 
+
+        if(lastMat.cols!=currentMat.cols){
+            if(lastMat.cols>currentMat.cols){
+                lastMat=updateWidth(lastMat,currentMat);
+            }
+            if(lastMat.cols<currentMat.cols){
+                currentMat=updateWidth(currentMat,lastMat);
+            }
+        }
+
+        if(lastMat.rows!=currentMat.rows){
+            if(lastMat.rows>currentMat.rows){
+                lastMat=updateHeight(lastMat,currentMat);
+            }
+
+            if(lastMat.rows<currentMat.rows){
+                currentMat=updateHeight(currentMat,lastMat);
+            }
+        }
+
+        // std::cout << "LAST:" << std::endl; 
+        // std::cout << "COLS:" << lastMat.cols << std::endl; 
+        // std::cout << "ROWS:" << lastMat.rows << std::endl; 
+        // std::cout << "NEW:" << std::endl; 
+        // std::cout << "COLS:" << currentMat.cols << std::endl; 
+        // std::cout << "ROWS:" << currentMat.rows << std::endl; 
+    }
+
     vector<uchar> status;
     vector<float> errors;
     vector<Point2f> currentPoints = m_points;
     // std::cout << "POINTS:" << currentPoints.size() << std::endl; 
     vector<Point2f> newPoints;
-    calcOpticalFlowPyrLK(lastMat, currentMat,
-                        currentPoints, newPoints,
-                        status, errors);
+    if(currentPoints.size()>0){
+        calcOpticalFlowPyrLK(lastMat, currentMat,
+                            currentPoints, newPoints,
+                            status, errors);
 
-    float highest=0;
-    float smallest=100000;
-    // int number=0;
-    for(auto cStatus : errors){
-        if(cStatus>highest){
-            highest=cStatus;
+        float highest=0;
+        float smallest=100000;
+        // int number=0;
+        for(auto cStatus : errors){
+            if(cStatus>highest){
+                highest=cStatus;
+            }
+            if(cStatus<smallest){
+                smallest=cStatus;
+            }
         }
-        if(cStatus<smallest){
-            smallest=cStatus;
+        for(int index=0;index<currentPoints.size();index++){
+            cv::Point2f currentPoint = currentPoints[index];
+            float cStatus = errors[index];
+            // std::cout << "New Value:" << currentFace_feature.x << "," << currentFace_feature.y << std::endl;
+            // std::cout << "Old Value:" << next_face_features[index].x << "," << next_face_features[index].y << std::endl;
+
+            // if(highest>(smallest+0.1)*11){//Obstacle hiding face (TODO: improve) 
+            //     boolupdateMat=false;
+            //     std::cout << "BOM!" << std::endl;
+            //     newPoints[index]=currentPoint;
+            // }
         }
-    }
-    for(int index=0;index<currentPoints.size();index++){
-        cv::Point2f currentPoint = currentPoints[index];
-        float cStatus = errors[index];
-        // std::cout << "New Value:" << currentFace_feature.x << "," << currentFace_feature.y << std::endl;
-        // std::cout << "Old Value:" << next_face_features[index].x << "," << next_face_features[index].y << std::endl;
-        if(highest>(smallest+0.1)*11){//Obstacle hiding face (TODO: improve) 
-            boolupdateMat=false;
-            std::cout << "BOM!" << std::endl;
-            newPoints[index]=currentPoint;
+        // std::cout << "Highest:" << highest << std::endl;
+        // std::cout << "Smallest:" << smallest << std::endl;
+        m_points=newPoints;
+        if(boolupdateMat){
+            m_mat = currentMat; 
         }
-    }
-    // std::cout << "Highest:" << highest << std::endl;
-    // std::cout << "Smallest:" << smallest << std::endl;
-    m_points=newPoints;
-    if(boolupdateMat){
-        m_mat = currentMat; 
     }
 }
 

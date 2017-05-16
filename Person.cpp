@@ -97,25 +97,48 @@ vector<Point2f> Person::getPoints(){
 
 Rect Person::getRectFromPoints(){
     Rect tempRect = m_face->getRectFromPoints();
-    cout << "NX:" << m_faceRect->x << endl;
-    cout << "NY:" << m_faceRect->y << endl;
-    cout << "Nwidth:" << m_faceRect->width << endl;
-    cout << "Nheight:" << m_faceRect->height << endl;
-    cout << "BX:" << tempRect.x << endl;
-    cout << "BY:" << tempRect.y << endl;
-    cout << "Bwidth:" << tempRect.width << endl;
-    cout << "Bheight:" << tempRect.height << endl;
+    cout << "current x:" << m_faceRect->x << endl;
+    cout << "current y:" << m_faceRect->y << endl;
+    cout << "current width:" << m_faceRect->width << endl;
+    cout << "current height:" << m_faceRect->height << endl;
+    cout << "new x:" << tempRect.x << endl;
+    cout << "new y:" << tempRect.y << endl;
+    cout << "new width:" << tempRect.width << endl;
+    cout << "new height:" << tempRect.height << endl;
+    tempRect.x = tempRect.x/4;
+    tempRect.y = tempRect.y/4;
     tempRect.x = tempRect.x + m_faceRect->x;
     tempRect.y = tempRect.y + m_faceRect->y;
-    cout << "X:" << tempRect.x << endl;
-    cout << "Y:" << tempRect.y << endl;
+    tempRect.width =  1.25 * tempRect.width;
+    tempRect.height = 1.25 * tempRect.height;
+
+    if(tempRect.width>tempRect.height){
+        tempRect.height = tempRect.width;
+    }else{
+        tempRect.width = tempRect.height;
+    }
+
+    if(tempRect.x - m_faceRect->x < 0.05 * tempRect.x){
+        tempRect.x = m_faceRect->x;
+    }
+
+    if(tempRect.y - m_faceRect->y < 0.05 * tempRect.y){
+        tempRect.y = m_faceRect->y;
+    }
+    // tempRect.width =  30 + tempRect.width;
+    // tempRect.height = 30 + tempRect.height;
+    cout << "final width:" << tempRect.width << endl;
+    cout << "final height:" << tempRect.height << endl;
+    cout << "final x:" << tempRect.x << endl;
+    cout << "final Y:" << tempRect.y << endl;
     return tempRect;
 }
 
 void Person::updateFaceMat(Mat fullMat){
-    setFaceRect(getRectFromPoints());
-    cout << "AX:" << m_faceRect->x << endl;
-    cout << "AY:" << m_faceRect->y << endl;
+    // getRectFromPoints();
+    // setFaceRect(getRectFromPoints());
+    // cout << "AX:" << m_faceRect->x << endl;
+    // cout << "AY:" << m_faceRect->y << endl;
     Mat faceMat=fullMat(getFaceRect());
     cout << "P!" << endl;
     m_face->updateMat(faceMat);

@@ -188,10 +188,10 @@ void Face::calculateOpticalFlow(Mat lastMat, Mat currentMat){
     }
 
     for(int index=0;index<newPoints.size();index++){
-        if(newPoints[index].x<0 || 
-           newPoints[index].y<0 ||
-           newPoints[index].x>m_mat.rows ||
-           newPoints[index].y>m_mat.cols){
+        if(newPoints[index].x<=0 || 
+           newPoints[index].y<=0 ||
+           newPoints[index].x>=m_mat.rows ||
+           newPoints[index].y>=m_mat.cols){
             // cout << "BOM!" << newPoints.size() << endl;
             newPoints.erase(newPoints.begin()+index);
             index--;

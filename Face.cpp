@@ -53,6 +53,7 @@ void Face::findEyes(Mat faceMat){
     Size(faceMat.rows / 50, faceMat.cols / 50),
     Size(faceMat.rows, faceMat.cols));
 
+    // cout << "Eyes:" << allEyes.size() << endl;
     for(auto eyeRect : allEyes){
         Eye eye(eyeRect);
         m_eyes.push_back(eye);
@@ -66,6 +67,7 @@ void Face::findNoses(Mat faceMat){
     Size(faceMat.rows / 50, faceMat.cols / 50),
     Size(faceMat.rows, faceMat.cols));
 
+    // cout << "Noses:" << allNoses.size() << endl;
     for(auto noseRect : allNoses){
         Nose nose(noseRect);
         m_noses.push_back(nose);
@@ -79,6 +81,7 @@ void Face::findMouths(Mat faceMat){
     Size(faceMat.rows / 50, faceMat.cols / 50),
     Size(faceMat.rows, faceMat.cols));
 
+    // cout << "Mouths:" << allMouths.size() << endl;
     for(auto mouthRect : allMouths){
         Mouth mouth(mouthRect);
         m_mouths.push_back(mouth);
@@ -107,17 +110,33 @@ vector<Eye> Face::getEyes(){
 
 vector<Point2f> Face::makePoints(){
     vector<Point2f> points;
-    for(auto eye : m_eyes){
-        points.insert(points.end(), eye.getPoints().begin(), eye.getPoints().end());
-    }   
+    // cout << "E:" << m_eyes.size() << endl;
+    // cout << "N:" << m_noses.size() << endl;
+    // cout << "M:" << m_mouths.size() << endl;
 
+    for(auto eye : m_eyes){
+        for(auto point : eye.getPoints()){
+            points.push_back(point);
+        }
+    }   
+    
     for(auto nose : m_noses){
-        points.insert(points.end(), nose.getPoints().begin(), nose.getPoints().end());
+        for(auto point : nose.getPoints()){
+            points.push_back(point);
+        }
     }  
 
     for(auto mouth : m_mouths){
-        points.insert(points.end(), mouth.getPoints().begin(), mouth.getPoints().end());
+        for(auto point : mouth.getPoints()){
+            points.push_back(point);
+        }
     }  
+
+    // cout << "P:" << points.size() << endl;
+    // for(auto point : points){
+    //     cout << "PX:" << point.x << endl;
+    //     cout << "PY:" << point.x << endl;
+    // }
     return points;
 }
 
@@ -157,6 +176,7 @@ void Face::calculateOpticalFlow(Mat lastMat, Mat currentMat){
     for(int index=0;index<currentPoints.size();index++){
         cv::Point2f currentPoint = currentPoints[index];
         float cStatus = errors[index];
+        
         // std::cout << "New Value:" << currentFace_feature.x << "," << currentFace_feature.y << std::endl;
         // std::cout << "Old Value:" << next_face_features[index].x << "," << next_face_features[index].y << std::endl;
 
@@ -165,6 +185,18 @@ void Face::calculateOpticalFlow(Mat lastMat, Mat currentMat){
         //     std::cout << "BOM!" << std::endl;
         //     newPoints[index]=currentPoint;
         // }
+    }
+
+    for(int index=0;index<newPoints.size();index++){
+        if(newPoints[index].x<0 || 
+           newPoints[index].y<0 ||
+           newPoints[index].x>m_mat.rows ||
+           newPoints[index].y>m_mat.cols){
+            // cout << "BOM!" << newPoints.size() << endl;
+            newPoints.erase(newPoints.begin()+index);
+            index--;
+            // cout << "N:" << newPoints.size() << endl;
+        }
     }
     // std::cout << "Highest:" << highest << std::endl;
     // std::cout << "Smallest:" << smallest << std::endl;

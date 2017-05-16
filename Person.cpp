@@ -99,8 +99,12 @@ Rect Person::getRectFromPoints(){
     Rect tempRect = m_face->getRectFromPoints();
     cout << "NX:" << m_faceRect->x << endl;
     cout << "NY:" << m_faceRect->y << endl;
+    cout << "Nwidth:" << m_faceRect->width << endl;
+    cout << "Nheight:" << m_faceRect->height << endl;
     cout << "BX:" << tempRect.x << endl;
     cout << "BY:" << tempRect.y << endl;
+    cout << "Bwidth:" << tempRect.width << endl;
+    cout << "Bheight:" << tempRect.height << endl;
     tempRect.x = tempRect.x + m_faceRect->x;
     tempRect.y = tempRect.y + m_faceRect->y;
     cout << "X:" << tempRect.x << endl;
@@ -109,7 +113,7 @@ Rect Person::getRectFromPoints(){
 }
 
 void Person::updateFaceMat(Mat fullMat){
-    // setFaceRect(getRectFromPoints());
+    setFaceRect(getRectFromPoints());
     cout << "AX:" << m_faceRect->x << endl;
     cout << "AY:" << m_faceRect->y << endl;
     Mat faceMat=fullMat(getFaceRect());

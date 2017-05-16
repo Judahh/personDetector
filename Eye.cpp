@@ -11,22 +11,30 @@ Eye::Eye(Rect eyeRect){
     Point2f corner;
     corner.x=(eyeRect.x);
     corner.y=(eyeRect.y);
-    m_points.push_back(corner);
+    if(corner.x>=0 && corner.y>=0){
+        m_points.push_back(corner);
+    }
 
-    Point2f corner2;
-    corner2.x=(eyeRect.x + eyeRect.width);
-    corner2.y=(eyeRect.y);
-    m_points.push_back(corner2);
+    // Point2f corner2;
+    corner.x=(eyeRect.x + eyeRect.width);
+    corner.y=(eyeRect.y);
+    if(corner.x>=0 && corner.y>=0){
+        m_points.push_back(corner);
+    }
 
-    Point2f corner3;
-    corner3.x=(eyeRect.x);
-    corner3.y=(eyeRect.y + eyeRect.height);
-    m_points.push_back(corner3);
+    // Point2f corner3;
+    corner.x=(eyeRect.x);
+    corner.y=(eyeRect.y + eyeRect.height);
+    if(corner.x>=0 && corner.y>=0){
+        m_points.push_back(corner);
+    }
 
-    Point2f corner4;
-    corner4.x=(eyeRect.x + eyeRect.width);
-    corner4.y=(eyeRect.y + eyeRect.height);
-    m_points.push_back(corner4);
+    // Point2f corner4;
+    corner.x=(eyeRect.x + eyeRect.width);
+    corner.y=(eyeRect.y + eyeRect.height);
+    if(corner.x>=0 && corner.y>=0){
+        m_points.push_back(corner);
+    }
 }
 
 Eye::Eye(vector<Point2f> points){

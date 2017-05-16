@@ -11,22 +11,30 @@ Mouth::Mouth(Rect mouthRect){
     Point2f corner;
     corner.x=(mouthRect.x);
     corner.y=(mouthRect.y);
-    m_points.push_back(corner);
+    if(corner.x>=0 && corner.y>=0){
+        m_points.push_back(corner);
+    }
 
-    Point2f corner2;
-    corner2.x=(mouthRect.x + mouthRect.width);
-    corner2.y=(mouthRect.y);
-    m_points.push_back(corner2);
+    // Point2f corner2;
+    corner.x=(mouthRect.x + mouthRect.width);
+    corner.y=(mouthRect.y);
+    if(corner.x>=0 && corner.y>=0){
+        m_points.push_back(corner);
+    }
 
-    Point2f corner3;
-    corner3.x=(mouthRect.x);
-    corner3.y=(mouthRect.y + mouthRect.height);
-    m_points.push_back(corner3);
+    // Point2f corner3;
+    corner.x=(mouthRect.x);
+    corner.y=(mouthRect.y + mouthRect.height);
+    if(corner.x>=0 && corner.y>=0){
+        m_points.push_back(corner);
+    }
 
-    Point2f corner4;
-    corner4.x=(mouthRect.x + mouthRect.width);
-    corner4.y=(mouthRect.y + mouthRect.height);
-    m_points.push_back(corner4);
+    // Point2f corner4;
+    corner.x=(mouthRect.x + mouthRect.width);
+    corner.y=(mouthRect.y + mouthRect.height);
+    if(corner.x>=0 && corner.y>=0){
+        m_points.push_back(corner);
+    }
 }
 
 Mouth::Mouth(vector<Point2f> points){

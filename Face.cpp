@@ -175,21 +175,21 @@ void Face::calculateOpticalFlow(Mat lastMat, Mat currentMat){
 }
 
 Rect Face::getRectFromPoints(){
-    float smallestX=10000;
-    float smallestY=10000;
+    float smallestX=1000000;
+    float smallestY=1000000;
     float biggestX=0;
     float biggestY=0;
     for(auto point : m_points){
         if(point.x>biggestX){
             biggestX=point.x;
         }
-        if(point.x<smallestX){
+        if(point.x<smallestX && point.x>=0){
             smallestX=point.x;
         }
         if(point.y>biggestY){
             biggestY=point.y;
         }
-        if(point.y<smallestY){
+        if(point.y<smallestY && point.y>=0){
             smallestY=point.y;
         }
     }

@@ -11,22 +11,30 @@ Nose::Nose(Rect noseRect){
     Point2f corner;
     corner.x=(noseRect.x);
     corner.y=(noseRect.y);
-    m_points.push_back(corner);
+    if(corner.x>=0 && corner.y>=0){
+        m_points.push_back(corner);
+    }
 
-    Point2f corner2;
-    corner2.x=(noseRect.x + noseRect.width);
-    corner2.y=(noseRect.y);
-    m_points.push_back(corner2);
+    // Point2f corner2;
+    corner.x=(noseRect.x + noseRect.width);
+    corner.y=(noseRect.y);
+    if(corner.x>=0 && corner.y>=0){
+        m_points.push_back(corner);
+    }
 
-    Point2f corner3;
-    corner3.x=(noseRect.x);
-    corner3.y=(noseRect.y + noseRect.height);
-    m_points.push_back(corner3);
+    // Point2f corner3;
+    corner.x=(noseRect.x);
+    corner.y=(noseRect.y + noseRect.height);
+    if(corner.x>=0 && corner.y>=0){
+        m_points.push_back(corner);
+    }
 
-    Point2f corner4;
-    corner4.x=(noseRect.x + noseRect.width);
-    corner4.y=(noseRect.y + noseRect.height);
-    m_points.push_back(corner4);
+    // Point2f corner4;
+    corner.x=(noseRect.x + noseRect.width);
+    corner.y=(noseRect.y + noseRect.height);
+    if(corner.x>=0 && corner.y>=0){
+        m_points.push_back(corner);
+    }
 }
 
 Nose::Nose(vector<Point2f> points){

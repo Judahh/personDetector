@@ -97,14 +97,23 @@ vector<Point2f> Person::getPoints(){
 
 Rect Person::getRectFromPoints(){
     Rect tempRect = m_face->getRectFromPoints();
+    cout << "NX:" << m_faceRect->x << endl;
+    cout << "NY:" << m_faceRect->y << endl;
+    cout << "BX:" << tempRect.x << endl;
+    cout << "BY:" << tempRect.y << endl;
     tempRect.x = tempRect.x + m_faceRect->x;
     tempRect.y = tempRect.y + m_faceRect->y;
+    cout << "X:" << tempRect.x << endl;
+    cout << "Y:" << tempRect.y << endl;
     return tempRect;
 }
 
 void Person::updateFaceMat(Mat fullMat){
     // setFaceRect(getRectFromPoints());
+    cout << "AX:" << m_faceRect->x << endl;
+    cout << "AY:" << m_faceRect->y << endl;
     Mat faceMat=fullMat(getFaceRect());
+    cout << "P!" << endl;
     m_face->updateMat(faceMat);
 }
 

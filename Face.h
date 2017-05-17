@@ -19,6 +19,7 @@ public:
     
     void                updateMat(Mat faceMat);
 
+    Mat                 getMatPrevious();
     Mat                 getMat();
     vector<Eye>         getEyes();
     vector<Nose>        getNoses();
@@ -26,11 +27,16 @@ public:
     vector<Point2f>     getPoints();
 
     Rect                getRectFromPoints();
+    Rect                getRectPreviousFromPoints();
+    Rect                getFullRectFromPoints();
 
 private:
+    void                makePoints();
+    void                makeRectFromPoints();
 
-    vector<Point2f>     makePoints();
-
+    Rect                m_rectPreviousFromPoints; 
+    Rect                m_rectFromPoints;
+    // Mat                 m_matPrevious;
     Mat                 m_mat;
     vector<Eye>         m_eyes;
     vector<Nose>        m_noses;

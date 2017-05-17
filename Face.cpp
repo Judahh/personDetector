@@ -14,7 +14,7 @@ Face::Face(Mat faceMat){
     findEyes(faceMat);
     findNoses(faceMat);
     findMouths(faceMat);
-    m_points=makePoints();
+    makePoints();
 }
 
 Face::Face(vector<Point2f> facePoints, Mat faceMat){
@@ -88,6 +88,10 @@ void Face::findMouths(Mat faceMat){
     }
 }
 
+// Mat Face::getMatPrevious(){
+//     return m_matPrevious;
+// }
+
 Mat Face::getMat(){
     return m_mat;
 }
@@ -108,7 +112,7 @@ vector<Eye> Face::getEyes(){
     return m_eyes;
 }
 
-vector<Point2f> Face::makePoints(){
+void Face::makePoints(){
     vector<Point2f> points;
     // cout << "E:" << m_eyes.size() << endl;
     // cout << "N:" << m_noses.size() << endl;
@@ -137,7 +141,8 @@ vector<Point2f> Face::makePoints(){
     //     cout << "PX:" << point.x << endl;
     //     cout << "PY:" << point.x << endl;
     // }
-    return points;
+    m_points = points;
+    makeRectFromPoints();
 }
 
 Mat Face::updateWidth(Mat   wider, Mat correct){
@@ -202,11 +207,20 @@ void Face::calculateOpticalFlow(Mat lastMat, Mat currentMat){
     // std::cout << "Smallest:" << smallest << std::endl;
     m_points=newPoints;
     if(boolupdateMat){
-        m_mat = currentMat; 
+        // m_matPrevious = m_mat; 
+        m_mat = currentMat;
     }
 }
 
 Rect Face::getRectFromPoints(){
+    return m_rectFromPoints;
+}
+
+Rect Face::getRectPreviousFromPoints(){
+    return m_rectPreviousFromPoints;
+}
+
+void Face::makeRectFromPoints(){
     float smallestX=1000000;
     float smallestY=1000000;
     float biggestX=0;
@@ -225,7 +239,45 @@ Rect Face::getRectFromPoints(){
             smallestY=point.y;
         }
     }
-    return Rect(smallestX, smallestY, biggestX-smallestX, biggestY-smallestY);
+    m_rectPreviousFromPoints = m_rectFromPoints;
+    m_rectFromPoints = Rect(smallestX, smallestY, biggestX-smallestX, biggestY-smallestY);
+}
+
+Rect Face::getFullRectFromPoints(){
+    Rect currentRect = getRectFromPoints();
+    Rect previousRect = getRectPreviousFromPoints();
+    if(previousRect.width==0||previousRect.height==0){
+        previousRect=currentRect;
+        m_rectPreviousFromPoints = m_rectFromPoints;
+    }
+    Mat previousMat = getMat();
+
+    // cout << "previous x:" << previousRect.x << endl;
+    // cout << "previous y:" << previousRect.y << endl;
+    // cout << "previous width:" << previousRect.width << endl;
+    // cout << "previous height:" << previousRect.height << endl;
+
+    float widthOffset = previousMat.cols - previousRect.width;
+    float heightOffset = previousMat.rows - previousRect.height;
+    float xOffset = 0 - previousRect.x;
+    float yOffset = 0 - previousRect.y;
+
+    cout << "widthOffset:" << widthOffset << endl;
+    cout << "heightOffset:" << heightOffset << endl;
+    cout << "xOffset:" << xOffset << endl;
+    cout << "yOffset:" << yOffset << endl;
+
+    float newX = currentRect.x+xOffset;
+    float newY = currentRect.y+yOffset;
+    float newWidth = currentRect.width+widthOffset;
+    float newHeight = currentRect.height+heightOffset;
+
+    cout << "NEW x:" << newX << endl;
+    cout << "NEW y:" << newY << endl;
+    cout << "NEW width:" << newWidth << endl;
+    cout << "NEW height:" << newHeight << endl;
+    
+    return Rect(newX, newY, newWidth, newHeight);
 }
 
 void Face::updateMat(Mat currentMat){
@@ -275,7 +327,7 @@ void Face::updateMat(Mat currentMat){
         findEyes(lastMat);
         findNoses(lastMat);
         findMouths(lastMat);
-        m_points=makePoints();
+        makePoints();
         if(currentPoints.size()>0){
             calculateOpticalFlow(lastMat, currentMat);
         }

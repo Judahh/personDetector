@@ -43,6 +43,7 @@
         "valarray": "cpp",
         "__bit_reference": "cpp",
         "*.ipp": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "ios": "cpp"
     }
 }

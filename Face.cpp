@@ -206,6 +206,7 @@ void Face::calculateOpticalFlow(Mat lastMat, Mat currentMat){
     // std::cout << "Highest:" << highest << std::endl;
     // std::cout << "Smallest:" << smallest << std::endl;
     m_points=newPoints;
+    makeRectFromPoints();
     if(boolupdateMat){
         // m_matPrevious = m_mat; 
         m_mat = currentMat;
@@ -239,6 +240,7 @@ void Face::makeRectFromPoints(){
             smallestY=point.y;
         }
     }
+    cout << "NEW!" << endl;
     m_rectPreviousFromPoints = m_rectFromPoints;
     m_rectFromPoints = Rect(smallestX, smallestY, biggestX-smallestX, biggestY-smallestY);
 }
@@ -249,6 +251,7 @@ Rect Face::getFullRectFromPoints(){
     if(previousRect.width==0||previousRect.height==0){
         previousRect=currentRect;
         m_rectPreviousFromPoints = m_rectFromPoints;
+        cout << "DEAD!" << endl;
     }
     Mat previousMat = getMat();
 
@@ -262,20 +265,20 @@ Rect Face::getFullRectFromPoints(){
     float xOffset = 0 - previousRect.x;
     float yOffset = 0 - previousRect.y;
 
-    cout << "widthOffset:" << widthOffset << endl;
-    cout << "heightOffset:" << heightOffset << endl;
-    cout << "xOffset:" << xOffset << endl;
-    cout << "yOffset:" << yOffset << endl;
+    // cout << "widthOffset:" << widthOffset << endl;
+    // cout << "heightOffset:" << heightOffset << endl;
+    // cout << "xOffset:" << xOffset << endl;
+    // cout << "yOffset:" << yOffset << endl;
 
     float newX = currentRect.x+xOffset;
     float newY = currentRect.y+yOffset;
     float newWidth = currentRect.width+widthOffset;
     float newHeight = currentRect.height+heightOffset;
 
-    cout << "NEW x:" << newX << endl;
-    cout << "NEW y:" << newY << endl;
-    cout << "NEW width:" << newWidth << endl;
-    cout << "NEW height:" << newHeight << endl;
+    // cout << "NEW x:" << newX << endl;
+    // cout << "NEW y:" << newY << endl;
+    // cout << "NEW width:" << newWidth << endl;
+    // cout << "NEW height:" << newHeight << endl;
     
     return Rect(newX, newY, newWidth, newHeight);
 }

@@ -136,6 +136,9 @@ Rect Person::getRectFromPoints(){
         cout << "final x:" << tempRect.x << endl;
         cout << "final y:" << tempRect.y << endl;
 
+        // m_face->setXOffsetFromRectFromPoints(tempRect.x - m_faceRect->x);
+        // m_face->setYOffsetFromRectFromPoints(tempRect.y - m_faceRect->y);
+
     }
     
     return tempRect;
@@ -153,6 +156,7 @@ void Person::updateFaceMat(Mat fullMat){
     imshow("CURRENT", m_face->getMat());
     imshow("FOUND", faceMat);
     // cout << "P!" << endl;
+    // m_face->updatePointsFromRectFromPoints();
     m_face->updateMat(faceMat);
 }
 

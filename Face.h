@@ -30,6 +30,11 @@ public:
     Rect                getRectPreviousFromPoints();
     Rect                getFullRectFromPoints();
 
+    void                updatePointsFromRectFromPoints();
+  
+    void                setXOffsetFromRectFromPoints(float offset);
+    void                setYOffsetFromRectFromPoints(float offset);
+
 private:
     void                makePoints();
     void                makeRectFromPoints();
@@ -42,6 +47,9 @@ private:
     vector<Nose>        m_noses;
     vector<Mouth>       m_mouths;
     vector<Point2f>     m_points;
+
+    float               m_xOffsetFromRectFromPoints;
+    float               m_yOffsetFromRectFromPoints;
 
     Mat                 updateWidth(Mat   wider, Mat correct);
     Mat                 updateHeight(Mat higher, Mat correct);

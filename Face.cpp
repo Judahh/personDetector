@@ -15,6 +15,8 @@ Face::Face(Mat faceMat){
     findNoses(faceMat);
     findMouths(faceMat);
     makePoints();
+    m_xOffsetFromRectFromPoints = 0;
+    m_yOffsetFromRectFromPoints = 0;
 }
 
 Face::Face(vector<Point2f> facePoints, Mat faceMat){
@@ -245,6 +247,25 @@ void Face::makeRectFromPoints(){
     m_rectFromPoints = Rect(smallestX, smallestY, biggestX-smallestX, biggestY-smallestY);
 }
 
+void Face::updatePointsFromRectFromPoints(){
+    vector<Point2f> newPoints;
+    for(auto point : m_points){
+        cout << "xB:" << point.x << endl;
+        point.x = point.x + m_xOffsetFromRectFromPoints;
+        point.y = point.y + m_yOffsetFromRectFromPoints;
+        cout << "xA:" << point.x << endl;
+        newPoints.push_back(point);
+    }
+    m_points=newPoints;
+}
+
+void Face::setXOffsetFromRectFromPoints(float offset){
+    m_xOffsetFromRectFromPoints=offset;
+}
+void Face::setYOffsetFromRectFromPoints(float offset){
+    m_yOffsetFromRectFromPoints=offset;
+}
+
 Rect Face::getFullRectFromPoints(){
     Rect currentRect = getRectFromPoints();
     Rect previousRect = getRectPreviousFromPoints();
@@ -265,10 +286,13 @@ Rect Face::getFullRectFromPoints(){
     float xOffset = 0 - previousRect.x;
     float yOffset = 0 - previousRect.y;
 
+    // m_xOffsetFromRectFromPoints = xOffset;
+    // m_yOffsetFromRectFromPoints = yOffset;
+
     // cout << "widthOffset:" << widthOffset << endl;
     // cout << "heightOffset:" << heightOffset << endl;
-    // cout << "xOffset:" << xOffset << endl;
-    // cout << "yOffset:" << yOffset << endl;
+    cout << "xOffset:" << xOffset << endl;
+    cout << "yOffset:" << yOffset << endl;
 
     float newX = currentRect.x+xOffset;
     float newY = currentRect.y+yOffset;

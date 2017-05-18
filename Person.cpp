@@ -136,8 +136,14 @@ Rect Person::getRectFromPoints(){
         cout << "final x:" << tempRect.x << endl;
         cout << "final y:" << tempRect.y << endl;
 
-        m_face->setXOffsetFromRectFromPoints(tempRect.x - m_faceRect->x);
-        m_face->setYOffsetFromRectFromPoints(tempRect.y - m_faceRect->y);
+        float offsetX = tempRect.x - m_faceRect->x;
+        float offsetY = tempRect.y - m_faceRect->y;
+
+        cout << "offset x:" << offsetX << endl;
+        cout << "offset y:" << offsetY << endl;
+
+        m_face->setXOffsetFromRectFromPoints(offsetX);
+        m_face->setYOffsetFromRectFromPoints(offsetY);
 
     }
     
@@ -145,17 +151,21 @@ Rect Person::getRectFromPoints(){
 }
 
 void Person::updateFaceMat(Mat fullMat){
+    cout << "P!" << endl;
     setFaceRect(getRectFromPoints());
     // cout << "AX:" << m_faceRect->x << endl;
     // cout << "AY:" << m_faceRect->y << endl;
     // cout << "COLS:" << fullMat.cols << endl; 
     // cout << "ROWS:" << fullMat.rows << endl; 
+    cout << "P0!" << endl;
     Mat faceMat=fullMat(getFaceRect());
-    imshow("CURRENT", m_face->getMat());
-    imshow("FOUND", faceMat);
-    // cout << "P!" << endl;
+    // imshow("CURRENT", m_face->getMat());
+    // imshow("FOUND", faceMat);
+    cout << "P1!" << endl;
     m_face->updatePointsFromRectFromPoints();
+    cout << "P2!" << endl;
     m_face->updateMat(faceMat);
+    cout << "P3!" << endl;
 }
 
 cv::Mat Person::getFaceTemplate(const cv::Mat &face){

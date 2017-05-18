@@ -252,9 +252,10 @@ void Face::updatePointsFromRectFromPoints(){
     cout << "xB:" << m_points[0].x << endl;
     cout << "yB:" << m_points[0].y << endl;
     for(auto point : m_points){
-        point.x = point.x + m_xOffsetFromRectFromPoints;
-        point.y = point.y + m_yOffsetFromRectFromPoints;
-        newPoints.push_back(point);
+        Point2f newPoint;
+        newPoint.x = point.x + m_xOffsetFromRectFromPoints;
+        newPoint.y = point.y + m_yOffsetFromRectFromPoints;
+        newPoints.push_back(newPoint);
     }
     m_points=newPoints;
     cout << "xA:" << m_points[0].x << endl;

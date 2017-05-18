@@ -145,8 +145,6 @@ Rect Person::getRectFromPoints(){
 }
 
 void Person::updateFaceMat(Mat fullMat){
-    // getRectFromPoints();
-    
     setFaceRect(getRectFromPoints());
     // cout << "AX:" << m_faceRect->x << endl;
     // cout << "AY:" << m_faceRect->y << endl;
